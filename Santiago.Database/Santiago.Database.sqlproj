@@ -104,7 +104,7 @@
     <PostDeploy Include="Scripts\PostDeploymentScript.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PublishProfiles\Dev.publish.xml" />
     <None Include="PublishProfiles\Test.publish.xml" />
+    <None Include="PublishProfiles\Dev.publish.xml" />
   </ItemGroup>
 </Project>

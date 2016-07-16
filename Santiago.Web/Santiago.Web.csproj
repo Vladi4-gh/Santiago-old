@@ -207,13 +207,13 @@
     <Content Include="Areas\Admin\Views\Photograph\Popups\_AddPhotographPopup.cshtml" />
     <Content Include="Areas\Admin\Views\Photograph\Popups\_EditPhotographPopup.cshtml" />
     <Content Include="Areas\Admin\Views\Photograph\Popups\_DeletePhotographPopup.cshtml" />
-    <None Include="Properties\PublishProfiles\Live.pubxml" />
     <Content Include="Static\common\font-awesome\css\font-awesome.css" />
     <Content Include="Static\common\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Static\common\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Static\common\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Static\common\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="Static\common\font-awesome\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\Live.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

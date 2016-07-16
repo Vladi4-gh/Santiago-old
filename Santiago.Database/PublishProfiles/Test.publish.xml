@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>Santiago</TargetDatabaseName>
+    <DeployScriptFileName>Santiago.Database.sql</DeployScriptFileName>
+    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <CreateNewDatabase>True</CreateNewDatabase>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+    <TargetConnectionString>Data Source=(local);Integrated Security=False;Connect Timeout=120;Initial Catalog=Santiago;User ID=Santiago;Password=SantiagoPassword_12345;</TargetConnectionString>
+  </PropertyGroup>
+</Project>
