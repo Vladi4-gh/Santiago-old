@@ -1,0 +1,28 @@
+﻿@using System.Web.Optimization
+
+@{
+  var fullPageTitle = ViewBag.PageTitle + " | " + ViewBag.SiteName;
+}
+
+<!DOCTYPE html>
+<!-- © Владислав Иванов, 2016 | http://vk.com/vladi4_vk -->
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Владислав Иванов">
+    <meta name="robots" content="none">
+    <title>@fullPageTitle</title>
+    <link rel="icon" type="image/ico" href="/favicon.ico">
+    @Styles.Render("~/bundles/common/css")
+    @Scripts.Render("~/bundles/common/js")
+  </head>
+  <body>
+    <div class="error-page-layout">
+      <div class="error-message">
+        @RenderBody()
+      </div>
+    </div>
+  </body>
+</html>

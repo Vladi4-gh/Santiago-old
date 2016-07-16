@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[SiteSetting]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL,
+	[Name] NVARCHAR(MAX) NOT NULL,
+	[Value] NVARCHAR(MAX) NULL,
+	CONSTRAINT [PK_dbo.SiteSetting_Id] PRIMARY KEY CLUSTERED ([Id] ASC)
+);

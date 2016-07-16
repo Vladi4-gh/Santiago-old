@@ -1,0 +1,22 @@
+﻿@model Santiago.Web.Areas.Admin.ViewModels.Page.AddPageViewModel
+
+<div class="js-add-parent-page-popup">
+  @using (Html.BeginForm("CreatePage", "Page", new { area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(x => x.Title, "PopupTextBox")
+    @Html.EditorFor(x => x.Alias, "PopupTextBox")
+    @Html.EditorFor(x => x.Text, "PopupTextArea", new { Validation = false })
+    @Html.EditorFor(x => x.MetaDescription, "PopupTextBox")
+    @Html.EditorFor(x => x.MetaKeywords, "PopupTextBox")
+    @Html.EditorFor(x => x.SitemapXmlChangeFrequency, "PopupDropDownList", new { DataSource = ViewBag.SitemapXmlChangeFrequenciesSelectListItems })
+    @Html.EditorFor(x => x.SitemapXmlPriority, "PopupDropDownList", new { DataSource = ViewBag.SitemapXmlPrioritiesSelectListItems })
+    @Html.EditorFor(x => x.TemplateId, "PopupDropDownList", new { DataSource = ViewBag.PageTemplatesSelectListItems, DefaultValue = "Выберите шаблон страницы" })
+    @Html.EditorFor(x => x.IsPublished, "PopupDropDownList", new { Validation = false, DataSource = ViewBag.PublicationStatusesSelectListItems })
+
+    <div class="command-buttons-wrapper">
+      <button class="command-button save-button" type="submit">Сохранить</button>
+      <button class="command-button close-button" type="button">Закрыть</button>
+    </div>
+  }
+</div>

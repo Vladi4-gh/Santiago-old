@@ -1,0 +1,14 @@
+﻿@using System.Web.Optimization
+
+<div class="js-testimonials-data-table"></div>
+
+@section Popups {
+  @Html.Partial("~/Areas/Admin/Views/Testimonial/Popups/_AddTestimonialPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/Testimonial/Popups/_EditTestimonialPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/Testimonial/Popups/_DeleteTestimonialPopup.cshtml")
+}
+
+@section PageSpecificBundles {
+  @Styles.Render("~/bundles/admin-page-testimonials/css")
+  @Scripts.Render("~/bundles/admin-page-testimonials/js")
+}

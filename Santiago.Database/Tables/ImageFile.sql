@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[ImageFile]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL,
+	[Name] NVARCHAR(256) NOT NULL,
+	[Length] BIGINT NOT NULL,
+	[Width] INT NOT NULL,
+	[Height] INT NOT NULL,
+	[UploadDate] DATETIME2(7) NOT NULL,
+	CONSTRAINT [PK_dbo.ImageFile_Id] PRIMARY KEY CLUSTERED ([Id] ASC)
+);

@@ -1,0 +1,14 @@
+﻿@using System.Web.Optimization
+
+<div class="js-photographs-data-table"></div>
+
+@section Popups {
+  @Html.Partial("~/Areas/Admin/Views/Photograph/Popups/_AddPhotographPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/Photograph/Popups/_EditPhotographPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/Photograph/Popups/_DeletePhotographPopup.cshtml")
+}
+
+@section PageSpecificBundles {
+  @Styles.Render("~/bundles/admin-page-photographs/css")
+  @Scripts.Render("~/bundles/admin-page-photographs/js")
+}

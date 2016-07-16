@@ -1,0 +1,33 @@
+﻿@using Santiago.Web.Helpers
+@model object
+
+@{
+  var validationEnabled = (bool)(ViewData["Validation"] ?? true);
+  var templateName = (string)ViewData["TemplateName"];
+  var emptyValue = (string)ViewData["EmptyValue"];
+  var showEmptyValue = (bool)(ViewData["ShowEmptyValue"] ?? false);
+  var textCssClass = (string)ViewData["TextCssClass"];
+}
+
+<div class="form-group js-editor @HtmlHelperExtension.GetRequiredCssClassIfAttributeExists(ViewData.ModelMetadata)" data-editor-type="popup-hidden-with-display-value" data-editor-name="@HtmlHelperExtension.GetPropertyNameConvertedToLowerCamelCase(ViewData.ModelMetadata.PropertyName)">
+  @Html.LabelFor(x => x, new { @class = "col-md-2 control-label" })
+  <div class="col-md-10">
+    @Html.HiddenFor(x => x)
+    <div class="form-control-static">
+      @if (showEmptyValue)
+      {
+        @Html.DisplayValueFor(x => x, emptyValue, new { @class = "empty-value-text " + textCssClass, data_template_name = templateName, data_empty_value = emptyValue })
+      }
+      else
+      {
+        @Html.DisplayValueFor(x => x, new { @class = textCssClass, data_template_name = templateName, data_empty_value = emptyValue })
+      }
+    </div>
+    @if (validationEnabled)
+    {
+      <div class="validation-error-message-wrapper">
+        @Html.ValidationMessageFor(x => x, null, new { @class = "validation-error-message" })
+      </div>
+    }
+  </div>
+</div>

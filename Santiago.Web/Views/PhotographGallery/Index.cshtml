@@ -1,0 +1,20 @@
+﻿@using System.Web.Optimization
+
+<div class="photograph-gallery-page-layout">
+  <div class="photograph-categories-menu js-photograph-categories-menu">
+    <ul>
+      @foreach (var photographCategory in ViewBag.PhotographCategories)
+      {
+        <li>
+          <a href="#@photographCategory.Alias" title="@photographCategory.Name">@photographCategory.Name</a>
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="photograph-gallery js-photograph-gallery"></div>
+</div>
+
+@section PageSpecificBundles {
+  @Styles.Render("~/bundles/page-photograph-gallery/css")
+  @Scripts.Render("~/bundles/page-photograph-gallery/js")
+}

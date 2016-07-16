@@ -1,0 +1,18 @@
+﻿.file-upload > input[type="file"] {
+  display: none;
+}
+
+.file-upload > .upload-button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  height: 34px;
+  padding: 0 12px;
+}
+
+.file-upload > .upload-button:hover {
+  background-color: #e7e7e7;
+}
+
+.file-upload > .upload-state-message {
+  margin-left: 15px;
+}

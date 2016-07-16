@@ -1,0 +1,20 @@
+﻿@using Santiago.Web.Helpers
+@model string
+
+@{
+  var validationEnabled = (bool)(ViewData["Validation"] ?? true);
+  var rows = (int)(ViewData["Rows"] ?? 10);
+}
+
+<div class="form-group js-editor @HtmlHelperExtension.GetRequiredCssClassIfAttributeExists(ViewData.ModelMetadata)" data-editor-type="popup-textarea" data-editor-name="@HtmlHelperExtension.GetPropertyNameConvertedToLowerCamelCase(ViewData.ModelMetadata.PropertyName)">
+  @Html.LabelFor(x => x, new { @class = "col-md-2 control-label" })
+  <div class="col-md-10">
+    @Html.TextAreaFor(x => x, new { @class = "form-control", rows, placeholder = ViewData.ModelMetadata.Watermark })
+    @if (validationEnabled)
+    {
+      <div class="validation-error-message-wrapper">
+        @Html.ValidationMessageFor(x => x, null, new { @class = "validation-error-message" })
+      </div>
+    }
+  </div>
+</div>

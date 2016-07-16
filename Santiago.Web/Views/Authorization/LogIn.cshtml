@@ -1,0 +1,60 @@
+﻿@using System.Web.Optimization
+@using Santiago.Web.ViewModels.Authorization
+@model LogInViewModel
+
+@{
+  Layout = null;
+
+  const string pageTitle = "Вход в панель управления";
+  var fullPageTitle = pageTitle + " | " + ViewBag.SiteName;
+}
+
+<!DOCTYPE html>
+<!-- © Владислав Иванов, 2016 | http://vk.com/vladi4_vk -->
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Владислав Иванов">
+    <meta name="robots" content="none">
+    <title>@fullPageTitle</title>
+    <link rel="icon" type="image/ico" href="/favicon.ico">
+    @Styles.Render("~/bundles/common/css")
+    @Scripts.Render("~/bundles/common/js")
+  </head>
+  <body>
+    <div class="log-in-page">
+      <div class="header-wrapper">
+        <h1>@pageTitle</h1>
+      </div>
+      <hr>
+      <div class="container">
+        @using (Html.BeginForm("LogIn", "Authorization", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal js-log-in-form", role = "form" }))
+        {
+          @Html.AntiForgeryToken()
+          @Html.HiddenFor(x => x.ReturnUrl)
+          @Html.EditorFor(x => x.UserName, "LogInTextBox")
+          @Html.EditorFor(x => x.Password, "LogInPassword")
+          @Html.EditorFor(x => x.RememberMe, "LogInCheckBox")
+
+          <div class="log-in-button-wrapper">
+            <button class="button log-in-button js-log-in-button" type="submit">Войти</button>
+          </div>
+        }
+
+        <div class="log-in-info">
+          <div class="log-in-spinner-container js-log-in-spinner-container">
+            <div class="log-in-spinner-wrapper">
+              <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i><span>Выполняется вход, ждите</span>
+            </div>
+          </div>
+          <div class="invalid-log-in-attempt-message-wrapper">
+            @Html.ValidationMessage("InvalidLogInAttempt", new { @class = "validation-error-message js-validation-error-message" })
+          </div>
+        </div>
+      </div>
+    </div>
+    @Scripts.Render("~/bundles/page-log-in/js")
+  </body>
+</html>

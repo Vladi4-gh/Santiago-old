@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[PageTemplate]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL,
+	[Title] NVARCHAR(256) NOT NULL,
+	[ControllerName] NVARCHAR(MAX) NOT NULL,
+	[ActionName] NVARCHAR(MAX) NOT NULL,
+	CONSTRAINT [PK_dbo.PageTemplate_Id] PRIMARY KEY CLUSTERED ([Id] ASC)
+);

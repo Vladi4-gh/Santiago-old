@@ -1,0 +1,10 @@
+﻿@model Exception
+
+<h1 class="error-status-code">500</h1>
+<small class="error-status-description">Во время выполнения запроса произошла ошибка</small>
+<a href="/" title="На главную">На главную</a>
+
+@if (ViewBag.ShowException == true)
+{
+  <pre class="exception">@Model</pre>
+}

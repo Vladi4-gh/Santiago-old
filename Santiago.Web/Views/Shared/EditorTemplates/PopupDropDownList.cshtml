@@ -1,0 +1,22 @@
+﻿@using System.Collections
+@using Santiago.Web.Helpers
+@model object
+
+@{
+  var validationEnabled = (bool)(ViewData["Validation"] ?? true);
+  var dataSource = (IEnumerable)(ViewData["DataSource"] ?? new object[0]);
+  var defaultValue = (string)(ViewData["DefaultValue"]);
+}
+
+<div class="form-group js-editor @HtmlHelperExtension.GetRequiredCssClassIfAttributeExists(ViewData.ModelMetadata)" data-editor-type="popup-dropdownlist" data-editor-name="@HtmlHelperExtension.GetPropertyNameConvertedToLowerCamelCase(ViewData.ModelMetadata.PropertyName)">
+  @Html.LabelFor(x => x, new { @class = "col-md-2 control-label" })
+  <div class="col-md-10">
+    @Html.DropDownListFor(x => x, new SelectList(dataSource, "Value", "Text", 0), defaultValue, new { @class = "form-control" })
+    @if (validationEnabled)
+    {
+      <div class="validation-error-message-wrapper">
+        @Html.ValidationMessageFor(x => x, null, new { @class = "validation-error-message" })
+      </div>
+    }
+  </div>
+</div>

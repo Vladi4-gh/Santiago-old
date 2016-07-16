@@ -1,0 +1,23 @@
+﻿<div class="testimonials-page-layout">
+  <div class="testimonials-page-description">
+    <h1 class="testimonials-page-description-heading">Отзывы моих клиентов</h1>
+    <p class="testimonials-page-description-text">Для меня имеет большое значение оценка клиентами моей работы. На этой странице представлены лучшие отзывы, которые я получил от благодарных клиентов.</p>
+    <small class="testimonials-page-description-original-punctuation-warning">* Оригинальная пунктуация сохранена</small>
+  </div>
+
+  <div class="testimonials-wrapper">
+    @foreach (var testimonial in ViewBag.Testimonials)
+    {
+      <article class="testimonial clearfix">
+        <div class="testimonial-content clearfix">
+          <div class="testimonial-image-wrapper">
+            <img class="testimonial-image" src="@testimonial.AuthorImageFile.Url" width="@testimonial.AuthorImageFile.Width" height="@testimonial.AuthorImageFile.Height" alt="@testimonial.AuthorName" title="@testimonial.AuthorName" />
+          </div>
+          <h1 class="testimonial-heading">@testimonial.AuthorName</h1>
+          <p class="testimonial-text">@MvcHtmlString.Create(testimonial.Text)</p>
+        </div>
+        <time class="testimonial-creation-date" datetime="@testimonial.CreationDate.ToString("yyyy-MM-dd")">@testimonial.CreationDate.ToString("dd.MM.yyyy")</time>
+      </article>
+    }
+  </div>
+</div>

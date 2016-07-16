@@ -1,0 +1,14 @@
+﻿@using System.Web.Optimization
+
+<div class="js-main-menu-items-data-table"></div>
+
+@section Popups {
+  @Html.Partial("~/Areas/Admin/Views/MainMenuItem/Popups/_AddMainMenuItemPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/MainMenuItem/Popups/_EditMainMenuItemPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/MainMenuItem/Popups/_DeleteMainMenuItemPopup.cshtml")
+}
+
+@section PageSpecificBundles {
+  @Styles.Render("~/bundles/admin-page-main-menu/css")
+  @Scripts.Render("~/bundles/admin-page-main-menu/js")
+}

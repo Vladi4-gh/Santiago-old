@@ -1,0 +1,16 @@
+﻿@model Santiago.Web.Areas.Admin.ViewModels.MainMenuItem.AddMainMenuItemViewModel
+
+<div class="js-add-main-menu-item-popup">
+  @using (Html.BeginForm("CreateMainMenuItem", "MainMenuItem", new { area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(x => x.Text, "PopupTextBox")
+    @Html.EditorFor(x => x.Url, "PopupTextBox")
+    @Html.EditorFor(x => x.Order, "PopupTextBox")
+
+    <div class="command-buttons-wrapper">
+      <button class="command-button save-button" type="submit">Сохранить</button>
+      <button class="command-button close-button" type="button">Закрыть</button>
+    </div>
+  }
+</div>

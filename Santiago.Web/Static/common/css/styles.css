@@ -1,0 +1,756 @@
+﻿/**
+ * Структура стилей
+ * 
+ * 1. Common
+ * 2. Pages
+ *   2.1. Photograph gallery page
+ *   2.2. Testimonials page
+ *   2.3. Text page
+ *   2.4. Error pages
+ * 3. Forms
+ * 4. Log In page
+ * 5. Admin panel
+ *   5.1. Site settings
+ */
+
+/**
+ * 1. Common.
+ * 
+ * Общие стили.
+ */
+
+a,
+a:focus,
+a:hover {
+  color: #40b7b8;
+}
+
+span.empty-value-text {
+  color: #999;
+}
+
+span.italic-text {
+  font-style: italic;
+}
+
+span.underlined-text {
+  text-decoration: underline;
+}
+
+.clickable-text:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.popups {
+  display: none;
+}
+
+
+/**
+ * 2. Pages.
+ * 
+ * Стили, применяемые к страницам сайта.
+ */
+
+body.show-scroll-bar {
+  overflow-y: scroll;
+}
+
+.page-layout {
+  background-color: #fff;
+  min-height: 100vh;
+  min-width: 400px;
+}
+
+.page-layout::-moz-selection,
+.page-layout *::-moz-selection {
+  background-color: #40b7b8;
+  color: #fff;
+}
+
+.page-layout::selection,
+.page-layout *::selection {
+  background-color: #40b7b8;
+  color: #fff;
+}
+
+.page-layout > .main-menu {
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 #ddd;
+  position: relative;
+}
+
+.page-layout > .main-menu > .navbar-header > .navbar-toggle {
+  border: 0;
+  border-radius: 0;
+  height: 30px;
+  margin: 10px 15px 10px 10px;
+  padding: 0;
+  text-align: center;
+  width: 30px;
+}
+
+.page-layout > .main-menu > .navbar-header >.navbar-toggle:hover {
+  color: #40b7b8;
+}
+
+.page-layout > .main-menu > .navbar-header > .navbar-brand {
+  color: #333;
+}
+
+.page-layout > .main-menu > .navbar-header > .navbar-brand:focus,
+.page-layout > .main-menu > .navbar-header > .navbar-brand:hover {
+  color: #40b7b8;
+}
+
+.page-layout > .main-menu .navbar-phone {
+  margin: 15px 0 15px 30px;
+}
+
+.page-layout > .main-menu .main-menu-items {
+  align-items: center;
+  display: flex;
+  height: 50px;
+}
+
+.page-layout > .main-menu .main-menu-items > li {
+  margin-right: 15px;
+}
+
+.page-layout > .main-menu .main-menu-items > li:last-child {
+  margin-right: 0;
+}
+
+.page-layout > .main-menu .main-menu-items > li > a {
+  border-bottom: 2px solid transparent;
+  color: #333;
+  padding: 2px 5px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.page-layout > .main-menu .main-menu-items > li > a:focus,
+.page-layout > .main-menu .main-menu-items > li > a:hover {
+  background: none;
+  color: #40b7b8;
+}
+
+.page-layout > .main-menu .main-menu-items > li > a.active {
+  border-bottom: 2px solid #40b7b8;
+  color: #40b7b8;
+}
+
+@media (max-width: 767px) {
+  .page-layout > .main-menu .navbar-phone {
+    display: none;
+  }
+
+  .page-layout > .main-menu .main-menu-items {
+    display: block;
+    height: auto;
+  }
+
+  .page-layout > .main-menu .main-menu-items > li {
+    margin-right: 0;
+  }
+
+  .page-layout > .main-menu .main-menu-items > li > a {
+    border-bottom: 0;
+    padding: 5px 15px;
+  }
+
+  .page-layout > .main-menu .main-menu-items > li > a:hover {
+    background-color: #f5f5f5;
+  }
+
+  .page-layout > .main-menu .main-menu-items > li > a.active {
+    border-bottom: 0;
+  }
+}
+
+.page-layout > .content {
+  background-color: #f5f5f5;
+}
+
+.page-layout > .footer {
+  background-color: #fff;
+  box-shadow: 0 -1px 1px 0 #e8e8e8;
+  padding: 15px;
+  text-align: center;
+}
+
+
+/**
+ * 2.1. Pages - Photograph gallery page.
+ * 
+ * Стили, применяемые к странице галереи фотографий.
+ */
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-categories-menu {
+  padding: 15px 15px 5px;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-categories-menu > ul {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-categories-menu > ul > li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 10px;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-categories-menu > ul > li > a {
+  color: #333;
+  padding: 2px 5px;
+  text-decoration: none;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-categories-menu > ul > li > a:focus,
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-categories-menu > ul > li > a:hover {
+  color: #40b7b8;
+  text-decoration: none;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-categories-menu > ul > li > a.active {
+  border-bottom: 2px solid #40b7b8;
+  color: #40b7b8;
+  text-decoration: none;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-items-container > .photograph-gallery-item > .photograph-wrapper {
+  background-color: #fff;
+  border-color: #ddd;
+  box-shadow: 0 1px 3px #ddd;
+  pointer-events: none;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-items-container > .photograph-gallery-item > .photograph-wrapper:hover {
+  border-color: #40b7b8;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-items-container > .photograph-gallery-item > .photograph-wrapper > .photograph {
+  pointer-events: auto;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-slider > .photograph-container > .photograph-wrapper {
+  box-shadow: 0 0 1px 0 #ddd;
+  pointer-events: none;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-slider > .photograph-container > .photograph-wrapper:hover {
+  border-color: #40b7b8;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-slider > .photograph-container > .photograph-wrapper > .photograph {
+  pointer-events: auto;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-message-box {
+  padding: 10px;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-message-box > .photograph-gallery-message-box-block {
+  margin-bottom: 5px;
+}
+
+.page-layout > .content > .photograph-gallery-page-layout > .photograph-gallery > .photograph-gallery-message-box > .photograph-gallery-message-box-block:last-child {
+  margin-bottom: 0;
+}
+
+
+/**
+ * 2.2. Pages - Testimonials page.
+ * 
+ * Стили, применяемые к странице отзывов.
+ */
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-page-description {
+  padding: 15px;
+  text-align: center;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-page-description > .testimonials-page-description-heading {
+  margin: 0 0 15px;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-page-description > .testimonials-page-description-text {
+  margin: 0 0 15px;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper {
+  margin: 0 auto;
+  max-width: 768px;
+  padding: 15px;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial {
+  background-color: #fff;
+  box-shadow: 0 1px 3px #ddd;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial:last-child {
+  margin-bottom: 0;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content {
+  margin-bottom: 15px;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content > .testimonial-image-wrapper {
+  border: 1px solid #ddd;
+  box-shadow: 0 0 1px 0 #ddd;
+  float: left;
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content > .testimonial-image-wrapper > .testimonial-image {
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content > .testimonial-heading {
+  font-size: 24px;
+  margin: 0 0 15px 215px;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content > .testimonial-text {
+  margin: 0 0 0 215px;
+  text-align: justify;
+}
+
+.page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-creation-date {
+  color: #777;
+  float: right;
+}
+
+@media (max-width: 599px) {
+  .page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content {
+    text-align: center;
+  }
+
+  .page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content > .testimonial-image-wrapper {
+    display: inline-block;
+    float: none;
+  }
+
+  .page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content > .testimonial-heading {
+    margin: 15px 0;
+  }
+
+  .page-layout > .content > .testimonials-page-layout > .testimonials-wrapper > .testimonial > .testimonial-content > .testimonial-text {
+    margin: 0;
+  }
+}
+
+
+/**
+ * 2.3. Pages - Text page.
+ * 
+ * Стили, применяемые к текстовым страницам.
+ */
+
+.page-layout > .content > .text-page-layout {
+}
+
+
+/**
+ * 2.4. Pages - Error pages.
+ * 
+ * Стили, применяемые к страницам ошибок.
+ */
+
+.error-page-layout {
+  min-height: 100vh;
+  min-width: 400px;
+}
+
+.error-page-layout::-moz-selection,
+.error-page-layout *::-moz-selection {
+  background-color: #40b7b8;
+  color: #fff;
+}
+
+.error-page-layout::selection,
+.error-page-layout *::selection {
+  background-color: #40b7b8;
+  color: #fff;
+}
+
+.error-page-layout > .error-message {
+  padding: 15px;
+  text-align: center;
+}
+
+.error-page-layout > .error-message > .error-status-code {
+  font-size: 400px;
+  line-height: 1;
+  margin: 0;
+}
+
+.error-page-layout > .error-message > .error-status-description {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.error-page-layout > .error-message > .exception {
+  border-radius: 0;
+  margin: 15px 0 0;
+  padding: 15px;
+  text-align: left;
+  word-wrap: normal;
+}
+
+@media (max-width: 767px) {
+  .error-page-layout > .error-message > .error-status-code {
+    font-size: 300px;
+  }
+}
+
+@media (max-width: 599px) {
+  .error-page-layout > .error-message > .error-status-code {
+    font-size: 200px;
+  }
+}
+
+
+/**
+ * 3. Forms.
+ * 
+ * Стили, применяемые к формам.
+ */
+
+.button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+}
+
+.button:hover {
+  background-color: #e7e7e7;
+}
+
+.button.disabled {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #ddd;
+  cursor: default;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: #b5caff;
+  box-shadow: 0 0 1px #0077ff;
+  outline: 0;
+}
+
+.form-group .password-input-wrapper > .password-input {
+  float: left;
+  width: calc(100% - 44px);
+}
+
+.form-group .password-input-wrapper > .visibility-toggle-button {
+  float: right;
+  height: 34px;
+  width: 34px;
+}
+
+.form-group.required .control-label:after {
+  content: "*";
+  color: #f20b0b;
+  position: absolute;
+  right: 8px;
+}
+
+.validation-error-message-wrapper {
+  padding: 0 13px 0;
+}
+
+.validation-error-message {
+  color: #f20b0b;
+}
+
+
+/**
+ * 4. Log In page.
+ * 
+ * Стили, применяемые к странице входа в панель управления.
+ */
+
+.log-in-page > .header-wrapper {
+  text-align: center;
+}
+
+.log-in-page .log-in-button-wrapper {
+  text-align: center;
+}
+
+.log-in-page .log-in-button-wrapper > .log-in-button {
+  font-size: 20px;
+  height: 40px;
+  width: 150px;
+}
+
+.log-in-page .log-in-info {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.log-in-page .log-in-info > .log-in-spinner-container {
+  display: none;
+}
+
+.log-in-page .log-in-info > .log-in-spinner-container > .log-in-spinner-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.log-in-page .log-in-info > .log-in-spinner-container > .log-in-spinner-wrapper > span {
+  margin-left: 10px;
+}
+
+
+/**
+ * 5. Admin panel.
+ * 
+ * Стили, применяемые ко всем страницам панели управления.
+ */
+
+.admin-layout {
+  min-width: 400px;
+}
+
+.admin-layout > .admin-bar {
+  background-color: #333;
+  box-sizing: content-box;
+  color: #fff;
+  height: 30px;
+  padding: 5px;
+}
+
+.admin-layout > .admin-bar .main-page-link {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  float: left;
+  justify-content: center;
+  height: 30px;
+  padding: 0 5px 0;
+  text-decoration: none;
+}
+
+.admin-layout > .admin-bar .main-page-link:hover {
+  background-color: #777;
+}
+
+.admin-layout > .admin-bar > .right-block {
+  align-items: center;
+  display: flex;
+  float: right;
+}
+
+.admin-layout > .admin-bar > .right-block > .welcome-message {
+  float: left;
+  margin-right: 20px;
+}
+
+.admin-layout > .admin-bar > .right-block > form {
+  float: right;
+}
+
+.admin-layout > .admin-bar > .right-block > form > .log-out-button {
+  background-color: #333;
+  border: 0;
+  height: 30px;
+  padding: 0 5px 0;
+}
+
+.admin-layout > .admin-bar > .right-block > form > .log-out-button:hover {
+  background-color: #777;
+}
+
+.admin-layout > .admin-container {
+  display: flex;
+  min-height: calc(100vh - 40px);
+}
+
+.admin-layout > .admin-container > .admin-menu-wrapper {
+  background-color: #333;
+  overflow-x: hidden;
+  width: 210px;
+}
+
+.admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu {
+  margin: 0;
+  padding: 0;
+}
+
+.admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu > li {
+  display: block;
+}
+
+.admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu > li > a {
+  background-color: #777;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu > li > a:hover {
+  background-color: #ddd;
+  color: #333;
+}
+
+.admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu > li > a.active {
+  background-color: #fff;
+  color: #333;
+}
+
+.admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu > li > a > .icon-wrapper {
+  float: left;
+  height: 28px;
+  text-align: center;
+  width: 28px;
+}
+
+.admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu > li > a > .link-text-wrapper {
+  align-items: center;
+  display: flex;
+  margin-left: 36px;
+  min-height: 28px;
+}
+
+@media (max-width: 992px) {
+  .admin-layout > .admin-container > .admin-menu-wrapper {
+    width: 44px;
+  }
+
+  .admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu > li > a > .icon-wrapper {
+    float: none;
+  }
+
+  .admin-layout > .admin-container > .admin-menu-wrapper > .admin-menu > li > a > .link-text-wrapper {
+    display: none;
+  }
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper {
+  flex: 1;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content {
+  padding: 15px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content > .admin-content-heading {
+  line-height: 1;
+  margin: 0 0 15px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .description {
+  color: #333;
+  margin: 15px 0 0;
+  text-align: justify;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .description > .description-block {
+  margin-bottom: 15px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .description > .description-block:last-child {
+  margin-bottom: 0;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .popup .selected-data-table-row-info-wrapper {
+  margin-top: 15px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .popup .selected-data-table-row-info-wrapper > .remove-button {
+  background-color: transparent;
+  border: 0;
+  color: #da4f49;
+  display: none;
+  height: 20px;
+  padding: 0;
+  width: 20px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .popup .selected-data-table-row-info-wrapper > .remove-button:hover {
+  color: #bd362f;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .data-table table > tbody > tr.disabled-row {
+  background-color: #f5f5f5 !important;
+  color: #ddd !important;
+  cursor: default !important;
+}
+
+
+/**
+ * 5.1. Admin panel - Site settings.
+ * 
+ * Стили, применяемые к странице настроек сайта в панели управления.
+ */
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .edit-site-settings-page .site-settings-section > h2 {
+  font-size: 20px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .edit-site-settings-page .button-wrapper {
+  text-align: center;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .edit-site-settings-page .button-wrapper > .save-button {
+  height: 30px;
+  width: 100px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .edit-site-settings-page .message-wrapper {
+  margin-top: 15px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .edit-site-settings-page .message-wrapper > .spinner-wrapper {
+  align-items: center;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 280px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .edit-site-settings-page .message-wrapper > .spinner-wrapper > span {
+  margin-left: 10px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .edit-site-settings-page .message-wrapper > .success-message {
+  align-items: center;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 280px;
+}
+
+.admin-layout > .admin-container > .admin-content-wrapper > .admin-content .edit-site-settings-page .message-wrapper > .success-message > span {
+  margin-left: 10px;
+}

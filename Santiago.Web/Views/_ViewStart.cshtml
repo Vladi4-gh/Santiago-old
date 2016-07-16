@@ -1,0 +1,13 @@
+﻿@{
+  switch (ViewContext.Controller.ViewBag.LayoutName as string)
+  {
+    case "Page":
+      Layout = "~/Views/Shared/_PageLayout.cshtml";
+
+      break;
+    case "Error":
+      Layout = "~/Views/Shared/_ErrorLayout.cshtml";
+
+      break;
+  }
+}

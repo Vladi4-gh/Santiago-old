@@ -1,0 +1,21 @@
+﻿@using Santiago.Web.Helpers
+@model object
+
+@{
+  var validationEnabled = (bool)(ViewData["Validation"] ?? true);
+  var fileUploadCssClass = (string)(ViewData["FileUploadCssClass"] ?? "js-file-upload");
+}
+
+<div class="form-group js-editor @HtmlHelperExtension.GetRequiredCssClassIfAttributeExists(ViewData.ModelMetadata)" data-editor-type="popup-file-upload" data-editor-name="@HtmlHelperExtension.GetPropertyNameConvertedToLowerCamelCase(ViewData.ModelMetadata.PropertyName)">
+  @Html.LabelFor(x => x, new { @class = "col-md-2 control-label" })
+  <div class="col-md-10">
+    @Html.HiddenFor(x => x, new { @class = "js-uploaded-file-id" })
+    <div class="@fileUploadCssClass"></div>
+    @if (validationEnabled)
+    {
+      <div class="validation-error-message-wrapper">
+        @Html.ValidationMessageFor(x => x, null, new { @class = "validation-error-message" })
+      </div>
+    }
+  </div>
+</div>

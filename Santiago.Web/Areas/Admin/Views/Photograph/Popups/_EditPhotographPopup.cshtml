@@ -1,0 +1,21 @@
+﻿@model Santiago.Web.Areas.Admin.ViewModels.Photograph.EditPhotographViewModel
+
+<div class="js-edit-photograph-popup">
+  @using (Html.BeginForm("UpdatePhotograph", "Photograph", new { area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(x => x.Id, "PopupHiddenWithDisplayValue", new { Validation = false })
+    @Html.EditorFor(x => x.GalleryItemImageFileId, "PopupFileUpload", new { FileUploadCssClass = "js-photograph-gallery-item-image-file-upload" })
+    @Html.EditorFor(x => x.GallerySliderImageFileId, "PopupFileUpload", new { FileUploadCssClass = "js-photograph-gallery-slider-image-file-upload" })
+    @Html.EditorFor(x => x.CategoryId, "PopupHiddenWithDisplayValue", new { Validation = false, TemplateName = "categoryFieldText", EmptyValue = "Категория не выбрана", ShowEmptyValue = true, TextCssClass = "clickable-text" })
+    @Html.EditorFor(x => x.Title, "PopupTextBox")
+    @Html.EditorFor(x => x.Description, "PopupTextBox")
+    @Html.EditorFor(x => x.CreationDate, "PopupDisplayValue", new { TemplateName = "date" })
+    @Html.EditorFor(x => x.LastModifiedDate, "PopupDisplayValue", new { TemplateName = "date" })
+
+    <div class="command-buttons-wrapper">
+      <button class="command-button save-button" type="submit">Сохранить</button>
+      <button class="command-button close-button" type="button">Закрыть</button>
+    </div>
+  }
+</div>

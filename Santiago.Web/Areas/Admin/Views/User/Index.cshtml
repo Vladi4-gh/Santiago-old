@@ -1,0 +1,17 @@
+﻿@using System.Web.Optimization
+
+@Html.HiddenFor(x => ViewData["CurrentUserId"], new { @class = "js-current-user-id" })
+
+<div class="js-users-data-table"></div>
+
+@section Popups {
+  @Html.Partial("~/Areas/Admin/Views/User/Popups/_AddUserPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/User/Popups/_EditUserPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/User/Popups/_ChangeUserPasswordPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/User/Popups/_DeleteUserPopup.cshtml")
+}
+
+@section PageSpecificBundles {
+  @Styles.Render("~/bundles/admin-page-users/css")
+  @Scripts.Render("~/bundles/admin-page-users/js")
+}

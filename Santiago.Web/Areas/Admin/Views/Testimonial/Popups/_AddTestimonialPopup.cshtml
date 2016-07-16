@@ -1,0 +1,16 @@
+﻿@model Santiago.Web.Areas.Admin.ViewModels.Testimonial.AddTestimonialViewModel
+
+<div class="js-add-testimonial-popup">
+  @using (Html.BeginForm("CreateTestimonial", "Testimonial", new { area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(x => x.AuthorName, "PopupTextBox")
+    @Html.EditorFor(x => x.AuthorImageFileId, "PopupFileUpload", new { FileUploadCssClass = "js-testimonial-author-image-file-upload" })
+    @Html.EditorFor(x => x.Text, "PopupTextArea")
+
+    <div class="command-buttons-wrapper">
+      <button class="command-button save-button" type="submit">Сохранить</button>
+      <button class="command-button close-button" type="button">Закрыть</button>
+    </div>
+  }
+</div>

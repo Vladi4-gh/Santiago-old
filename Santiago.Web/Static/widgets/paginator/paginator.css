@@ -1,0 +1,55 @@
+﻿.paginator {
+  border: 1px solid #ddd;
+  float: left;
+  height: 30px;
+  width: 264px;
+}
+
+.paginator button {
+  background-color: #f5f5f5;
+  border: 0;
+  float: left;
+  height: 28px;
+  padding: 0;
+  width: 28px;
+}
+
+.paginator button:hover {
+  background-color: #e7e7e7;
+}
+
+.paginator button:focus {
+  position: relative;
+}
+
+.paginator button.disabled {
+  background-color: #f5f5f5;
+  color: #ddd;
+  cursor: default;
+}
+
+.paginator button.left-button {
+  border-right: 1px solid #ddd;
+}
+
+.paginator button.right-button {
+  border-left: 1px solid #ddd;
+}
+
+.paginator input {
+  border: none;
+  float: left;
+  height: 100%;
+  text-align: center;
+  width: 150px;
+}
+
+.paginator input:focus {
+  position: relative;
+}
+
+.paginator input.disabled {
+  background-color: #f5f5f5;
+  color: #ddd;
+  cursor: default;
+}

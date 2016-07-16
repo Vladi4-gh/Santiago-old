@@ -1,0 +1,36 @@
+﻿@using System.Web.Optimization
+@using Santiago.Web.Areas.Admin.ViewModels.SiteSetting
+@model EditSiteSettingsViewModel
+
+<div class="edit-site-settings-page">
+  @using (Html.BeginForm("UpdateSiteSettings", "SiteSetting", new { area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal js-edit-site-settings-form", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+
+    <div class="site-settings-section js-main-settings-section">
+      <h2>Основные настройки</h2>
+      @Html.EditorFor(x => x.MainPageId, "SiteSettingHiddenWithDisplayValue", new { EmptyValue = "Главная страница не выбрана", ValueTemplate = Model.MainPageTitle + " (ID: {0})", EditorCssClass = "js-selected-main-page-editor", TextCssClass = "clickable-text js-selected-main-page-info" })
+    </div>
+
+    <div class="button-wrapper">
+      <button class="button save-button js-save-button" type="submit">Сохранить</button>
+    </div>
+    <div class="message-wrapper">
+      <div class="spinner-wrapper hidden js-spinner-wrapper">
+        <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i><span>Идёт сохранение настроек</span>
+      </div>
+      <div class="success-message hidden js-success-message">
+        <i class="fa fa-check-circle-o fa-2x"></i><span>Настройки успешно сохранены</span>
+      </div>
+    </div>
+  }
+</div>
+
+@section Popups {
+  @Html.Partial("~/Areas/Admin/Views/SiteSetting/Popups/_SelectMainPagePopup.cshtml")
+}
+
+@section PageSpecificBundles {
+  @Styles.Render("~/bundles/admin-page-site-settings/css")
+  @Scripts.Render("~/bundles/admin-page-site-settings/js")
+}

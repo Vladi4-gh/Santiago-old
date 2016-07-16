@@ -1,0 +1,14 @@
+﻿@using System.Web.Optimization
+
+<div class="js-photograph-categories-data-table"></div>
+
+@section Popups {
+  @Html.Partial("~/Areas/Admin/Views/PhotographCategory/Popups/_AddPhotographCategoryPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/PhotographCategory/Popups/_EditPhotographCategoryPopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/PhotographCategory/Popups/_DeletePhotographCategoryPopup.cshtml")
+}
+
+@section PageSpecificBundles {
+  @Styles.Render("~/bundles/admin-page-photograph-categories/css")
+  @Scripts.Render("~/bundles/admin-page-photograph-categories/js")
+}

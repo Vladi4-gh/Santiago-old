@@ -1,0 +1,40 @@
+﻿@using System.Web.Optimization
+
+<div class="js-pages-data-table"></div>
+<div class="description">
+  <h4>ОПИСАНИЕ РАБОТЫ</h4>
+  <div class="description-block">
+    Ссылка на страницу формируется из псевдонима самой страницы и псевдонимов всех её родительских страниц. Уровень вложенности страницы определяется количеством псевдонимов в ссылке на страницу.<br>
+    Пример:
+    <ul>
+      <li>Страница с псевдонимом <span class="italic-text">no-parent</span>, и не имеющая родительской страницы, будет иметь ссылку <span class="italic-text underlined-text">/no-parent</span> и <span class="italic-text">1</span> уровень вложенности;</li>
+      <li>Страница с псевдонимом <span class="italic-text">child</span>, имеющая родительскую страницу с псевдонимом <span class="italic-text">parent</span>, будет иметь ссылку <span class="italic-text underlined-text">/parent/child</span> и <span class="italic-text">2</span> уровень вложенности;</li>
+      <li>Страница с псевдонимом <span class="italic-text">level3</span>, имеющая родительскую страницу с псевдонимом <span class="italic-text">level2</span>, которая имеет родительскую страницу с псевдонимом <span class="italic-text">level1</span>, будет иметь ссылку <span class="italic-text underlined-text">/level1/level2/level3</span> и <span class="italic-text">3</span> уровень вложенности.</li>
+    </ul>
+  </div>
+  <div class="description-block">
+    Страницы, находящиеся на одном уровне вложенности, могут иметь одинаковые псевдонимы, но при переходе на них будет открываться только первая найденная. Не следует указывать одинаковые псевдонимы для страниц с одинаковым уровнем вложенности.
+  </div>
+  <div class="description-block">
+    Допустимые символы псевдонима страницы - любые буквы английского и русского алфавитов, цифры, знаки минус "-" и нижнее подчёркивание "_".<br>
+    В поле <span class="italic-text">Текст</span> можно писать что угодно.<br>
+    В остальные поля нельзя вводить знаки меньше "&lt;" и больше "&gt;".
+  </div>
+  <div class="description-block">
+    Открыть можно только опубликованные страницы. Если страница не опубликована, то нельзя будет открыть ни её, ни любую из её дочерних страниц.<br>
+    В поле <span class="italic-text">Дата публикации</span> отображается дата последней публикации страницы. Если опубликованную страницу сделать неопубликованной, то значение поля <span class="italic-text">Дата публикации</span> сотрётся.
+  </div>
+</div>
+
+@section Popups {
+  @Html.Partial("~/Areas/Admin/Views/Page/Popups/_SelectParentPagePopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/Page/Popups/_AddPagePopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/Page/Popups/_AddParentPagePopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/Page/Popups/_EditPagePopup.cshtml")
+  @Html.Partial("~/Areas/Admin/Views/Page/Popups/_DeletePagePopup.cshtml")
+}
+
+@section PageSpecificBundles {
+  @Styles.Render("~/bundles/admin-page-pages/css")
+  @Scripts.Render("~/bundles/admin-page-pages/js")
+}

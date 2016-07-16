@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[MainMenuItem]
+(
+	[Id] INT IDENTITY(1, 1) NOT NULL,
+	[Text] NVARCHAR(256) NOT NULL,
+	[Url] NVARCHAR(256) NOT NULL,
+	[Order] INT NOT NULL,
+	[CreationDate] DATETIME2(7) NOT NULL,
+	[LastModifiedDate] DATETIME2(7) NOT NULL,
+	CONSTRAINT [PK_dbo.MainMenuItem_Id] PRIMARY KEY CLUSTERED ([Id] ASC)
+);

@@ -1,0 +1,60 @@
+﻿@using System.Web.Optimization
+@using Santiago.Web.Helpers
+
+@{
+  var fullPageTitle = ViewBag.PageTitle + " | " + ViewBag.SiteName;
+}
+
+<!DOCTYPE html>
+<!-- © Владислав Иванов, 2016 | http://vk.com/vladi4_vk -->
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@ViewBag.MetaDescription">
+    <meta name="keywords" content="@ViewBag.MetaKeywords">
+    <meta name="author" content="Владислав Иванов">
+    <meta name="robots" content="all">
+    <title>@fullPageTitle</title>
+    <link rel="icon" type="image/ico" href="/favicon.ico">
+    @Styles.Render("~/bundles/common/css")
+    @Scripts.Render("~/bundles/common/js")
+  </head>
+  <body class="@(ViewBag.ShowScrollBar != null && ViewBag.ShowScrollBar ? "show-scroll-bar" : string.Empty)">
+    <div class="page-layout">
+      <nav class="main-menu">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu-navbar-collapse">
+            <i class="fa fa-bars fa-2x"></i>
+          </button>
+          <a class="navbar-brand" href="/" title="@ViewBag.SiteName">@ViewBag.SiteName</a>
+        </div>
+        <div id="main-menu-navbar-collapse" class="collapse navbar-collapse">
+          <span class="navbar-phone navbar-right" title="Скорее звоните и закажите у меня фотосессию!">+7 (981) 155-68-41</span>
+          <ul class="nav navbar-nav navbar-right main-menu-items">
+            @foreach (var mainMenuItem in ViewBag.MainMenuItems)
+            {
+              <li>@Html.MainMenuItemLink((string)mainMenuItem.Text, (string)mainMenuItem.Url)</li>
+            }
+          </ul>
+        </div>
+      </nav>
+      <main class="content">
+        @RenderBody()
+      </main>
+      <footer class="footer">
+        <div class="contact-info-wrapper">
+          <p class="description">
+            <span>Саша Саньтьяго</span> - качественные фотографии в Санкт-Петербурге
+          </p>
+          <p class="contact-info">
+            <span class="phone no-word-wrap">+7 (981) 155-68-41</span> | <a href="/">sashasantiago.ru</a>
+          </p>
+          <small>Дизайн и разработка - <a href="http://vk.com/vladi4_vk">Владислав Иванов</a></small>
+        </div>
+      </footer>
+    </div>
+    @RenderSection("PageSpecificBundles", false)
+  </body>
+</html>

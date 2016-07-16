@@ -1,0 +1,24 @@
+﻿@model Santiago.Web.Areas.Admin.ViewModels.User.EditUserViewModel
+
+<div class="js-edit-user-popup">
+  @using (Html.BeginForm("UpdateUser", "User", new { area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(x => x.Id, "PopupHiddenWithDisplayValue", new { Validation = false })
+    @Html.EditorFor(x => x.UserName, "PopupTextBox")
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <span class="form-control-static clickable-text js-change-user-password">Сменить пароль</span>
+      </div>
+    </div>
+
+    @Html.EditorFor(x => x.CreationDate, "PopupDisplayValue", new { TemplateName = "date" })
+    @Html.EditorFor(x => x.LastModifiedDate, "PopupDisplayValue", new { TemplateName = "date" })
+
+    <div class="command-buttons-wrapper">
+      <button class="command-button save-button" type="submit">Сохранить</button>
+      <button class="command-button close-button" type="button">Закрыть</button>
+    </div>
+  }
+</div>

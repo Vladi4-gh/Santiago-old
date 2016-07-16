@@ -1,0 +1,15 @@
+﻿@model Santiago.Web.Areas.Admin.ViewModels.User.AddUserViewModel
+
+<div class="js-add-user-popup">
+  @using (Html.BeginForm("CreateUser", "User", new { area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(x => x.UserName, "PopupTextBox")
+    @Html.EditorFor(x => x.Password, "PopupPassword")
+
+    <div class="command-buttons-wrapper">
+      <button class="command-button save-button" type="submit">Сохранить</button>
+      <button class="command-button close-button" type="button">Закрыть</button>
+    </div>
+  }
+</div>

@@ -1,0 +1,19 @@
+﻿@model Santiago.Web.Areas.Admin.ViewModels.PhotographCategory.EditPhotographCategoryViewModel
+
+<div class="js-edit-photograph-category-popup">
+  @using (Html.BeginForm("UpdatePhotographCategory", "PhotographCategory", new { area = "Admin" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(x => x.Id, "PopupHiddenWithDisplayValue", new { Validation = false })
+    @Html.EditorFor(x => x.Name, "PopupTextBox")
+    @Html.EditorFor(x => x.Alias, "PopupTextBox")
+    @Html.EditorFor(x => x.Order, "PopupTextBox")
+    @Html.EditorFor(x => x.CreationDate, "PopupDisplayValue", new { TemplateName = "date" })
+    @Html.EditorFor(x => x.LastModifiedDate, "PopupDisplayValue", new { TemplateName = "date" })
+
+    <div class="command-buttons-wrapper">
+      <button class="command-button save-button" type="submit">Сохранить</button>
+      <button class="command-button close-button" type="button">Закрыть</button>
+    </div>
+  }
+</div>

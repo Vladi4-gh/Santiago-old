@@ -1,0 +1,18 @@
+﻿@model string
+
+@{
+    var validationEnabled = (bool)(ViewData["Validation"] ?? true);
+}
+
+<div class="form-group js-editor" data-editor-type="log-in-textbox">
+  @Html.LabelFor(x => x, new { @class = "col-sm-3 control-label" })
+  <div class="col-sm-6">
+    @Html.TextBoxFor(x => x, new { @class = "form-control", placeholder = ViewData.ModelMetadata.Watermark })
+    @if (validationEnabled)
+    {
+      <div class="validation-error-message-wrapper">
+        @Html.ValidationMessageFor(x => x, null, new { @class = "validation-error-message" })
+      </div>
+    }
+  </div>
+</div>
