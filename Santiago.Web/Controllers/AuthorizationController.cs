@@ -15,7 +15,7 @@ namespace Santiago.Web.Controllers
         [HttpGet]
         public ActionResult SantiagoWebAuthorizationControllerLogIn(string santiagoWebAuthorizationControllerReturnUrl)
         {
-            return View(new LogInViewModel
+            return View(new SantiagoWebAuthorizationLogInViewModel
             {
                 ReturnUrl = santiagoWebAuthorizationControllerReturnUrl
             });

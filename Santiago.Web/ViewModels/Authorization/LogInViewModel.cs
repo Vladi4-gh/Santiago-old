@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace Santiago.Web.ViewModels.Authorization
 {
-    public class LogInViewModel
+    public class SantiagoWebAuthorizationLogInViewModel
     {
         public string ReturnUrl { get; set; }
 
