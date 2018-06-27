@@ -9,13 +9,13 @@ using Santiago.Web.Helpers;
 namespace Santiago.Web.Controllers
 {
     [Authorize]
-    public class FileUploadController : BaseController
+    public class SantiagoWebFileUploadController : BaseController
     {
-        private readonly IFileService _fileService;
+        private readonly IFileService _santiagoFileUpladControllerFileService;
 
-        public FileUploadController(IFileService fileService)
+        public SantiagoWebFileUploadController(IFileService santiagoFileUpladControllerFileService)
         {
-            _fileService = fileService;
+            _santiagoFileUpladControllerFileService = santiagoFileUpladControllerFileService;
         }
 
         [HttpPost]
@@ -23,25 +23,25 @@ namespace Santiago.Web.Controllers
         {
             if (Request.Files.Count > 0)
             {
-                var postedFile = Request.Files[0];
+                var santiagoWebUploadedImagePostedFile = Request.Files[0];
 
-                if (postedFile != null && postedFile.ContentLength != 0 && IsImageFile(postedFile))
+                if (santiagoWebUploadedImagePostedFile != null && santiagoWebUploadedImagePostedFile.ContentLength != 0 && IsImageFile(santiagoWebUploadedImagePostedFile))
                 {
-                    var savedImageFile = _fileService.SaveImageFile(postedFile.FileName, postedFile.InputStream);
+                    var santiagoWebUploadedImageSavedImageFile = _santiagoFileUpladControllerFileService.SaveImageFile(santiagoWebUploadedImagePostedFile.FileName, santiagoWebUploadedImagePostedFile.InputStream);
 
-                    return Json(SerializeObjectToJson(savedImageFile.ToUploadedImageFileViewModel()));
+                    return Json(SerializeObjectToJson(santiagoWebUploadedImageSavedImageFile.ToUploadedImageFileViewModel()));
                 }
             }
 
             return null;
         }
 
-        private static bool IsImageFile(HttpPostedFileBase file)
+        private static bool IsImageFile(HttpPostedFileBase santiagoFileUpladControllerPostedFile)
         {
-            var contentTypes = new[] { "image/jpeg", "image/png" };
-            var formats = new[] { ".jpe", ".jpeg", ".jpg", ".png" };
+            var santiagoFileUpladControllerContentTypes = new[] { "image/jpeg", "image/png" };
+            var santiagoFileUpladControllerFormats = new[] { ".jpe", ".jpeg", ".jpg", ".png" };
 
-            return contentTypes.Any(contentType => file.ContentType.Equals(contentType, StringComparison.OrdinalIgnoreCase)) && formats.Any(format => file.FileName.EndsWith(format, StringComparison.OrdinalIgnoreCase));
+            return santiagoFileUpladControllerContentTypes.Any(santiagoFileUpladControllerContentType => santiagoFileUpladControllerPostedFile.ContentType.Equals(santiagoFileUpladControllerContentType, StringComparison.OrdinalIgnoreCase)) && santiagoFileUpladControllerFormats.Any(santiagoFileUpladControllerFormat => santiagoFileUpladControllerPostedFile.FileName.EndsWith(santiagoFileUpladControllerFormat, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

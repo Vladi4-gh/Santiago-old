@@ -9,53 +9,53 @@ using Santiago.Web.ViewModels.Authorization;
 namespace Santiago.Web.Controllers
 {
     [Authorize]
-    public class AuthorizationController : UserBaseController
+    public class SantiagoWebAuthorizationController : UserBaseController
     {
         [AllowAnonymous]
         [HttpGet]
-        public ActionResult LogIn(string returnUrl)
+        public ActionResult SantiagoWebAuthorizationControllerLogIn(string santiagoWebAuthorizationControllerReturnUrl)
         {
             return View(new LogInViewModel
             {
-                ReturnUrl = returnUrl
+                ReturnUrl = santiagoWebAuthorizationControllerReturnUrl
             });
         }
 
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<ActionResult> LogIn(LogInViewModel model, string returnUrl)
+        public async Task<ActionResult> SantiagoWebAuthorizationControllerLogIn(LogInViewModel santiagoWebAuthorizationControllerModel, string santiagoWebAuthorizationControllerReturnUrl)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View(santiagoWebAuthorizationControllerModel);
             }
 
-            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+            var result = await SignInManager.PasswordSignInAsync(santiagoWebAuthorizationControllerModel.UserName, santiagoWebAuthorizationControllerModel.Password, santiagoWebAuthorizationControllerModel.RememberMe, false);
 
             if (result == SignInStatus.Success)
             {
-                return Redirect(GetRedirectUrl(model.ReturnUrl));
+                return Redirect(GetRedirectUrl(santiagoWebAuthorizationControllerModel.ReturnUrl));
             }
 
             ModelState.AddModelError("InvalidLogInAttempt", "Введены неправильные имя пользователя или пароль");
 
-            return View(model);
+            return View(santiagoWebAuthorizationControllerModel);
         }
 
-        private string GetRedirectUrl(string returnUrl)
+        private string GetRedirectUrl(string santiagoWebAuthorizationControllerReturnUrl)
         {
-            if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
+            if (string.IsNullOrEmpty(santiagoWebAuthorizationControllerReturnUrl) || !Url.IsLocalUrl(santiagoWebAuthorizationControllerReturnUrl))
             {
                 return Url.Action("Index", "Page", new { area = "Admin" });
             }
 
-            return returnUrl;
+            return santiagoWebAuthorizationControllerReturnUrl;
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult LogOut()
+        public ActionResult SantiagoWebAuthorizationControllerLogOut()
         {
             HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
 
