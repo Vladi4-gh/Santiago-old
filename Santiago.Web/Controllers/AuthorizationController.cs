@@ -24,7 +24,7 @@ namespace Santiago.Web.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<ActionResult> SantiagoWebAuthorizationControllerLogIn(LogInViewModel santiagoWebAuthorizationControllerModel, string santiagoWebAuthorizationControllerReturnUrl)
+        public async Task<ActionResult> SantiagoWebAuthorizationControllerLogIn(SantiagoWebAuthorizationLogInViewModel santiagoWebAuthorizationControllerModel, string santiagoWebAuthorizationControllerReturnUrl)
         {
             if (!ModelState.IsValid)
             {
