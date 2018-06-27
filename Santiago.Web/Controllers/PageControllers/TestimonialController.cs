@@ -6,22 +6,22 @@ using Santiago.Web.Helpers;
 
 namespace Santiago.Web.Controllers.PageControllers
 {
-    public class TestimonialController : PageBaseController
+    public class SantiagoWebTestimonialController : PageBaseController
     {
-        private readonly ITestimonialService _testimonialService;
+        private readonly ITestimonialService _santiagoWebTestimonialControllerTestimonialService;
 
-        public TestimonialController(ITestimonialService testimonialService)
+        public SantiagoWebTestimonialController(ITestimonialService santiagoWebTestimonialControllerTestimonialService)
         {
-            _testimonialService = testimonialService;
+            _santiagoWebTestimonialControllerTestimonialService = santiagoWebTestimonialControllerTestimonialService;
         }
 
         [HttpGet]
-        public ActionResult Index(Page page)
+        public ActionResult Index(Page santiagoWebTestimonialControllerPage)
         {
-            ViewBag.MetaDescription = page.MetaDescription;
-            ViewBag.MetaKeywords = page.MetaKeywords;
-            ViewBag.PageTitle = page.Title;
-            ViewBag.Testimonials = _testimonialService.GetAllTestimonialsOrderedByCreationDateDesc().ToViewModelList(x => x.ToTestimonialViewModel());
+            ViewBag.MetaDescription = santiagoWebTestimonialControllerPage.MetaDescription;
+            ViewBag.MetaKeywords = santiagoWebTestimonialControllerPage.MetaKeywords;
+            ViewBag.PageTitle = santiagoWebTestimonialControllerPage.Title;
+            ViewBag.Testimonials = _santiagoWebTestimonialControllerTestimonialService.GetAllTestimonialsOrderedByCreationDateDesc().ToViewModelList(santiagoWebTestimonialControllerX => santiagoWebTestimonialControllerX.ToTestimonialViewModel());
 
             return View();
         }

@@ -7,16 +7,16 @@ using Santiago.Web.ViewModels.PhotographGallery;
 
 namespace Santiago.Web.Controllers.PageControllers
 {
-    public class PhotographGalleryController : PageBaseController
+    public class SantiagoWebPhotographGalleryController : PageBaseController
     {
-        private readonly IPhotographService _photographService;
+        private readonly IPhotographService _santiagoWebPhotographGalleryControllerPhotographService;
 
-        private readonly IPhotographCategoryService _photographCategoryService;
+        private readonly IPhotographCategoryService _santiagoWebPhotographGalleryControllerPhotographCategoryService;
 
-        public PhotographGalleryController(IPhotographService photographService, IPhotographCategoryService photographCategoryService)
+        public SantiagoWebPhotographGalleryController(IPhotographService santiagoWebPhotographGalleryControllerPhotographService, IPhotographCategoryService santiagoWebPhotographGalleryControllerPhotographCategoryService)
         {
-            _photographService = photographService;
-            _photographCategoryService = photographCategoryService;
+            _santiagoWebPhotographGalleryControllerPhotographService = santiagoWebPhotographGalleryControllerPhotographService;
+            _santiagoWebPhotographGalleryControllerPhotographCategoryService = santiagoWebPhotographGalleryControllerPhotographCategoryService;
         }
 
         [HttpGet]
@@ -27,27 +27,27 @@ namespace Santiago.Web.Controllers.PageControllers
             ViewBag.MetaKeywords = page.MetaKeywords;
             ViewBag.PageTitle = page.Title;
 
-            var photographCategories = _photographCategoryService.GetAllPhotographCategoriesOrderedByOrderAsc().ToViewModelList(x => x.ToPhotographCategoryViewModel());
+            var santiagoWebPhotographGalleryControllerPhotographCategories = _santiagoWebPhotographGalleryControllerPhotographCategoryService.GetAllPhotographCategoriesOrderedByOrderAsc().ToViewModelList(x => x.ToPhotographCategoryViewModel());
 
-            photographCategories.Insert(0, new PhotographCategoryViewModel
+            santiagoWebPhotographGalleryControllerPhotographCategories.Insert(0, new PhotographCategoryViewModel
             {
                 Name = "Все фотографии",
                 Alias = "all"
             });
 
-            ViewBag.PhotographCategories = photographCategories;
+            ViewBag.PhotographCategories = santiagoWebPhotographGalleryControllerPhotographCategories;
 
             return View();
         }
 
         [HttpGet]
-        public JsonResult GetPhotographsByCategoryAliasOrderedByCreationDateDesc(string categoryAlias, int skipNumber, int takeNumber)
+        public JsonResult GetPhotographsByCategoryAliasOrderedByCreationDateDesc(string santiagoWebPhotographGalleryControllerCategoryAlias, int santiagoWebPhotographGalleryControllerSkipNumber, int santiagoWebPhotographGalleryControllerTakeNumber)
         {
-            var model = categoryAlias == "all"
-                ? _photographService.GetPhotographsOrderedByCreationDateDesc(skipNumber, takeNumber).ToViewModelList(x => x.ToPhotographViewModel())
-                : _photographService.GetPhotographsByCategoryAliasOrderedByCreationDateDesc(categoryAlias, skipNumber, takeNumber).ToViewModelList(x => x.ToPhotographViewModel());
+            var santiagoWebPhotographGalleryControllerModel = santiagoWebPhotographGalleryControllerCategoryAlias == "all"
+                ? _santiagoWebPhotographGalleryControllerPhotographService.GetPhotographsOrderedByCreationDateDesc(santiagoWebPhotographGalleryControllerSkipNumber, santiagoWebPhotographGalleryControllerTakeNumber).ToViewModelList(x => x.ToPhotographViewModel())
+                : _santiagoWebPhotographGalleryControllerPhotographService.GetPhotographsByCategoryAliasOrderedByCreationDateDesc(santiagoWebPhotographGalleryControllerCategoryAlias, santiagoWebPhotographGalleryControllerSkipNumber, santiagoWebPhotographGalleryControllerTakeNumber).ToViewModelList(santiagoWebPhotographGalleryControllerX => santiagoWebPhotographGalleryControllerX.ToPhotographViewModel());
 
-            return Json(SerializeObjectToJson(model), JsonRequestBehavior.AllowGet);
+            return Json(SerializeObjectToJson(santiagoWebPhotographGalleryControllerModel), JsonRequestBehavior.AllowGet);
         }
     }
 }

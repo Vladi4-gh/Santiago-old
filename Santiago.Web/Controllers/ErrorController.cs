@@ -7,9 +7,9 @@ using Santiago.Web.Controllers.BaseControllers;
 
 namespace Santiago.Web.Controllers
 {
-    public class ErrorController : BaseController
+    public class SantiagoWebErrorController : BaseController
     {
-        private static ILogger Logger
+        private static ILogger SantiagoWebErrorControllerLogger
         {
             get
             {
@@ -17,7 +17,7 @@ namespace Santiago.Web.Controllers
             }
         }
 
-        public ErrorController()
+        public SantiagoWebErrorController()
         {
             ViewBag.LayoutName = "Error";
         }
@@ -29,36 +29,36 @@ namespace Santiago.Web.Controllers
 
             Response.StatusCode = 404;
 
-            return MakeErrorResponse(null, "404 Not Found");
+            return SantiagoWebErrorControllerMakeErrorResponse(null, "404 Not Found");
         }
 
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        public ActionResult InternalServerError(Exception exception)
+        public ActionResult InternalServerError(Exception santiagoWebErrorControllerException)
         {
             ViewBag.PageTitle = "500 - Произошла ошибка!";
             ViewBag.ShowException = Properties.Settings.Default.Environment == "Dev" || Properties.Settings.Default.Environment == "Test";
 
             Response.StatusCode = 500;
 
-            Logger.Error(exception, exception.Message);
+            SantiagoWebErrorControllerLogger.Error(santiagoWebErrorControllerException, santiagoWebErrorControllerException.Message);
 
-            return MakeErrorResponse(exception, "500 Internal Server Error");
+            return SantiagoWebErrorControllerMakeErrorResponse(santiagoWebErrorControllerException, "500 Internal Server Error");
         }
 
-        private ActionResult MakeErrorResponse(object model, string ajaxResponseMessage)
+        private ActionResult SantiagoWebErrorControllerMakeErrorResponse(object santiagoWebErrorControllerModel, string santiagoWebErrorControllerSjaxResponseMessage)
         {
-            ActionResult result;
+            ActionResult santiagoWebErrorControllerResult;
 
             if (!Request.IsAjaxRequest())
             {
-                result = View(model);
+                santiagoWebErrorControllerResult = View(santiagoWebErrorControllerModel);
             }
             else
             {
-                result = Content(ajaxResponseMessage);
+                santiagoWebErrorControllerResult = Content(santiagoWebErrorControllerSjaxResponseMessage);
             }
 
-            return result;
+            return santiagoWebErrorControllerResult;
         }
     }
 }

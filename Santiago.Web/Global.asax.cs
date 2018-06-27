@@ -56,7 +56,7 @@ namespace Santiago.Web
 
             Response.TrySkipIisCustomErrors = true;
 
-            IController errorController = new ErrorController();
+            IController errorController = new SantiagoWebErrorController();
 
             errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
 
