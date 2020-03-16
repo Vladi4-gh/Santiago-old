@@ -1,4 +1,4 @@
 # Santiago
-Тестовый проект - сайт фотографа Саши Саньтьяго.
+Test project - photographer site
 
-Вход в администраторскую панель - /admin (admin / admin12345)
+Admin access - /admin (admin / admin12345)
